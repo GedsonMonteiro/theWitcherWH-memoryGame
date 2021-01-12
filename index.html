@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>The Witcher 3 Memory Game</title>
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="sparkle"></div>
+
+    <!-- <iframe width="0" height="0" src="https://www.youtuberepeater.com/watch?v=66E_GxCMMek&lc=Ughp-QRLov8ATXgCoAEC#gsc.tab=0" frameborder="0" allowfullscreen></iframe> -->
+    <!-- <embed src="song/The Witcher 3 - Blood and Wine - Música.mp3" autostart="true" loop="true" width="2" height="0"> -->
+<div class="container">
+    <!-- <audio controls class="song"></audio> -->
+    <audio autoplay class="song">
+        <source src="/song/The Witcher 3 - Blood and Wine - Música.mp3" type="audio/mpeg" loop="true"></audio>
+
+    <main class="memory-game">
+        <div class="card" data-card="Geralt-Ciri-Yen">
+            <img class="card-front" src="./img/01.png" alt="Face da carta">
+            <img class="card-back" src="./img/icon.png" alt="Verso da carta">
+        </div>
+        <div class="card" data-card="Geralt-Ciri">
+            <img class="card-front" src="./img/02.png" alt="Face da carta">
+            <img class="card-back" src="./img/icon.png" alt="Verso da carta">
+        </div>
+        <div class="card" data-card="Geralt back">
+            <img class="card-front" src="./img/03.png" alt="Face da carta">
+            <img class="card-back" src="./img/icon.png" alt="Verso da carta">
+        </div>
+        <div class="card" data-card="Geralt">
+            <img class="card-front" src="./img/04.png" alt="Face da carta">
+            <img class="card-back" src="./img/icon.png" alt="Verso da carta">
+        </div>
+        <div class="card" data-card="Geralt-Emhyr">
+            <img class="card-front" src="./img/05.png" alt="Face da carta">
+            <img class="card-back" src="./img/icon.png" alt="Verso da carta">
+        </div>
+        <div class="card" data-card="Geralt-WildHunt">
+            <img class="card-front" src="./img/06.png" alt="Face da carta">
+            <img class="card-back" src="./img/icon.png" alt="Verso da carta">
+        </div>
+        <div class="card" data-card="Geralt-Ciri-Yen">
+            <img class="card-front" src="./img/01.png" alt="Face da carta">
+            <img class="card-back" src="./img/icon.png" alt="Verso da carta">
+        </div>
+        <div class="card" data-card="Geralt-Ciri">
+            <img class="card-front" src="./img/02.png" alt="Face da carta">
+            <img class="card-back" src="./img/icon.png" alt="Verso da carta">
+        </div>
+        <div class="card" data-card="Geralt back">
+            <img class="card-front" src="./img/03.png" alt="Face da carta">
+            <img class="card-back" src="./img/icon.png" alt="Verso da carta">
+        </div>
+        <div class="card" data-card="Geralt">
+            <img class="card-front" src="./img/04.png" alt="Face da carta">
+            <img class="card-back" src="./img/icon.png" alt="Verso da carta">
+        </div>
+        <div class="card" data-card="Geralt-Emhyr">
+            <img class="card-front" src="./img/05.png" alt="Face da carta">
+            <img class="card-back" src="./img/icon.png" alt="Verso da carta">
+        </div>
+        <div class="card" data-card="Geralt-WildHunt">
+            <img class="card-front" src="./img/06.png" alt="Face da carta">
+            <img class="card-back" src="./img/icon.png" alt="Verso da carta">
+        </div>
+    </main>
+</div>
+    <script src="./script.js"></script>
+    <script>
+        let curs = document.querySelector('.cursor');
+
+document.addEventListener('mousemove', (e) => {
+  let x = e.pageX;
+  let y = e.pageY;
+  curs.style.left = (x - 15) + 'px';
+  curs.style.top = (y - 15) + 'px';
+});
+
+document.addEventListener('click', (e) => {
+  let x = e.pageX;
+  let y = e.pageY;
+  
+  curs.classList.add('explosion');
+  setTimeout(function() {
+    curs.classList.remove('explosion');
+  }, 900);
+  
+  let blackhole = document.createElement('blackhole');
+  blackhole.style.left = x + 'px';
+  blackhole.style.top = y + 'px';
+  document.body.appendChild(blackhole);
+  let size = Math.random() * 40;
+  blackhole.style.width = 1 + size + 'px';
+  blackhole.style.height = 1 + size + 'px';
+  
+  setTimeout(function() {
+    blackhole.remove();
+  }, 2000);
+});
+    </script>
+</body>
+</html>
